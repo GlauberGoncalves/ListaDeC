@@ -6,7 +6,6 @@ int main(void)
 
         do
         {
-            printf("\t\t\nMenu do curso C Progressivo\n");
             printf("0. Sair\n");
             printf("1. Dar Boas vindas\n");
             printf("2. Dar Oi\n");
