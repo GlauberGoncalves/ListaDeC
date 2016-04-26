@@ -12,7 +12,7 @@ int main()
     printf("\n*********************\n");
     printf("*Informe a sua idade*\n");
     printf("*********************\n");
-    scanf("%d", &idade); system("cls || clear");
+    scanf("%d", &idade); system("clear");
     
      
          if ((idade >= 0) && (idade <= 15) )
@@ -26,7 +26,7 @@ int main()
      printf("*Digite 1 para voltar*\n");
      printf("*Ou 2 para sair*******\n");
      printf("**********************\n");
-     scanf("%d", &voltar); system ("cls || clear");
+     scanf("%d", &voltar); system ("clear");
      }    
     while (voltar == 1);
     return 0;
