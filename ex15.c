@@ -33,7 +33,7 @@ int main()
         printf("\n");
         cont++;                   // cont é a var responsavel por começar a 
        for(i=1;i<=cont;i++)      // sequancia aumentando um a cada linha
-            printf(" "); // -> imprime o espaço no inicio de cada linha
+            printf("  "); // -> imprime o espaço no inicio de cada linha
         quantidade = quantidade -1 ;    // var quantidade diminui 1 para 
                                        // imprimir o ultimo numero da linha anterior - 1;
       
