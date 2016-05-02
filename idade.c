@@ -9,6 +9,13 @@
     
     exemplo
         v300414 -30/04 as 14horas
+        
+        
+    A faixa etaria será
+        criança     -  0 a 12;
+        adolescente - 13 a 19;
+        Jovem adulto- 20 a 59;
+        Senhor      - 60 a 150;
     
 ****************************
 *    Projeto               *
@@ -16,9 +23,12 @@
 *        Programação C 1   *
 ****************************
 
-    Seção de atualizações
+*****************************************************************************
+    Seção de ATUALIZAÇÕES
     
     v300414 - incluido classificação "criança" na função classificação.
+    v020516 - incluido função elimina idade
+              função classificação alterada para pergunta.
 
 
 */
@@ -29,55 +39,64 @@
 
 #include <stdio.h>
 
+// função elimina idade recebe um intervalo correspondente a idade 
+// eliminada. x é menor que y.
+int elimina_idade(int x , int y, int vetor[])
+{
+    int i;
+    for (i=x;i<=y;i++)
+    {
+        vetor[i] = 0;
+    }
+    
+  return 0;
+}
+
+
+
+
 /*
-    Função classificação irá classificar uma pessoa em criança,
-    adolescente, adulto e idoso.
+   Função pergunta recebe um numero de 1 a 4, faz pergunta e 
+   elimina a faixa etaria que não há probabilidade.
 
 */
-int classificacao(int numero)
+int pergunta(int numero, int vetor[])
 {
-    int resposta,IdadeMax,IdadeMin;
-        
+    int resposta,idade_min,idade_max;
         
 switch (numero){
    case 1:{
-            printf("\nVocê é uma criança?\n");
+            printf("\nVocê é uma criança? (1-sim | 2-nao)\n");
             scanf("%d", &resposta);
-        
-            if(resposta == 1)
-              {
-                IdadeMin = 0;
-                IdadeMax = 12;
-            
-                printf("Você tem menos de 13 anos? ");
-                scanf("%d", &resposta);
-               
-                if(resposta == 1)
-                  {
-            	    IdadeMin = 0;
-            	    IdadeMax = 12;
-                  }else{
-                    	 IdadeMin = 13;
-                    	 IdadeMax = 150;
-                       }
-               }else
-                   {
-                       printf("Você tem mais de 11 anos?\n");
-                       scanf("%d", &resposta);
-                       
-                       if (resposta == 1)
-                           {
-                              IdadeMin = 13;
-                              IdadeMax = 150;
-                           }
-                       }
-                   }
+            if (resposta == 1)
+                {
+                    idade_min = 13; // faixa que sera cortada das possibilidades
+                    idade_max = 150;
+                    elimina_idade(idade_min,idade_max,vetor);
+                    break;
+                }
+            else numero = 2;    
+           }
+           
+   case 2:{        
+            printf("\nVocê é um(a)adolescente? (1-sim | 2-nao) \n");
+            break;
+          
+           }
 
-
-        
-}
+   case 3:{        
+            printf("\nVocê é um jovem adulto? (1-sim | 2-nao) \n");
+            break;
+           }
+   
+   case 4:{        
+            printf("\nVocê é um Senhor(a)? (1-sim | 2-nao) \n");
+            break;
+           }           
+    }
     return 0;
 }
+
 /*
     função VetIdade atribui um numero a cada indice do vetor
     que representa um idade
@@ -98,7 +117,8 @@ int main()
 {
     int idade[151];  // vetor guarda todas as idades possiveis. Nesse caso
                     // 151 possiveis
-    int IdadeMin, IdadeMax;
+
+
 
 
       
