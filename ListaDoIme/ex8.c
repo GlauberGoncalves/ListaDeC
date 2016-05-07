@@ -5,12 +5,15 @@
 
 int fatorial( int x )
 {
-    int y, resultado;
- y = x - 1;
-if ( x > 0)
- resultado = x * fatorial( y );
- 
-return resultado;
+    int i, resultado;
+    
+    resultado = x;
+    x--;
+    for(i=x;i<=1;i--){
+    resultado = resultado * i;
+    }
+ return resultado;    
+
 }
 
 int main( )
